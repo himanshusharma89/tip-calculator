@@ -46,6 +46,15 @@ class _MyHomePageState extends State<MyHomePage> {
       TextEditingController(text: '15'); // Define initial text here
 
   @override
+  void dispose() {
+    if (_billController != null && _tipPercentageController != null) {
+      _billController.dispose();
+      _tipPercentageController.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
